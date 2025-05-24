@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$RUFC - Robot Combat UFC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #ffffff;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-image: linear-gradient(45deg, rgba(255, 0, 0, 0.1), rgba(0, 0, 0, 0.9));
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 800px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            color: #ff3300;
+            text-shadow: 0 0 15px rgba(255, 51, 0, 0.5);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #cccccc;
+        }
+
+        .contract-address {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 30px;
+            border-radius: 50px;
+            margin: 2rem auto;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+            position: relative;
+        }
+
+        .contract-address:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .contract-address::after {
+            content: '📋';
+            margin-left: 10px;
+            opacity: 0.7;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: #ff3300;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #ff5500;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 85, 0, 0.4);
+        }
+
+        .btn-disabled {
+            background: #444444;
+            color: #888888;
+            cursor: not-allowed;
+            position: relative;
+        }
+
+        .soon {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #ff3300;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+        }
+
+        #notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 255, 0, 0.2);
+            color: #00ff00;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>$RUFC</h1>
+        <h2>ROBOT COMBAT UFC</h2>
+
+        <div class="contract-address" onclick="copyContract()">
+            0x89205A3A3b2A69De6Dbf7f01ED13B2108B2c43e7
+        </div>
+
+        <div class="buttons">
+            <a href="https://t.me/rufc_portal" class="btn btn-primary" target="_blank">Join Community</a>
+            <div class="btn btn-disabled">
+                Betting Platform
+                <div class="soon">SOON</div>
+            </div>
+        </div>
+
+        <div id="notification">Address copied!</div>
+    </div>
+
+    <script>
+        function copyContract() {
+            const contract = "0x89205A3A3b2A69De6Dbf7f01ED13B2108B2c43e7";
+            navigator.clipboard.writeText(contract).then(() => {
+                showNotification();
+            });
+        }
+
+        function showNotification() {
+            const notification = document.getElementById('notification');
+            notification.style.display = 'block';
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
